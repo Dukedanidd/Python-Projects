@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 
-app = Flask(__name__)
-app.secret_key = 'supersecretkey'  # Necesario para mensajes de flash
 
 class Receta:
     def __init__(self, nombre, ingredientes, instrucciones, tiempo_preparacion, tiempo_coccion):
