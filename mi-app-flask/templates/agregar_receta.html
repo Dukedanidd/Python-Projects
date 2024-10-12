@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Receta</title>
+</head>
+<body>
+    <h1>Agregar Receta</h1>
+    <form method="POST">
+        Nombre: <input type="text" name="nombre" required><br>
+        Ingredientes (formato: {'ingrediente1': cantidad, 'ingrediente2': cantidad}): <input type="text" name="ingredientes" required><br>
+        Instrucciones: <textarea name="instrucciones" required></textarea><br>
+        Tiempo de Preparación (min): <input type="number" name="tiempo_preparacion" required><br>
+        Tiempo de Cocción (min): <input type="number" name="tiempo_coccion" required><br>
+        <input type="submit" value="Agregar">
+    </form>
+    <a href="{{ url_for('index') }}">Volver al Inicio</a>
+</body>
+</html>

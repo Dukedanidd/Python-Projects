@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Receta</title>
+</head>
+<body>
+    <h1>Buscar Receta</h1>
+    <form method="POST">
+        Nombre de la receta: <input type="text" name="nombre" required>
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if receta %}
+        <h2>Receta Encontrada:</h2>
+        <p>Nombre: {{ receta.nombre }}</p>
+        <p>Ingredientes: {{ receta.ingredientes }}</p>
+        <p>Instrucciones: {{ receta.instrucciones }}</p>
+        <p>Tiempo total: {{ receta.tiempo_total() }} minutos</p>
+    {% elif receta is not none %}
+        <p>No se encontró la receta.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Volver al Inicio</a>
+</body>
+</html>
