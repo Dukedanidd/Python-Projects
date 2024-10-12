@@ -38,7 +38,7 @@ def index():
 def agregar_receta():
     if request.method == 'POST':
         nombre = request.form['nombre']
-        ingredientes = eval(request.form['ingredientes'])  # Usa eval con cuidado
+        ingredientes = eval(request.form['ingredientes']) 
         instrucciones = request.form['instrucciones']
         tiempo_preparacion = int(request.form['tiempo_preparacion'])
         tiempo_coccion = int(request.form['tiempo_coccion'])
