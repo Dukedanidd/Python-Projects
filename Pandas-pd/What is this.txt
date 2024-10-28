@@ -1,0 +1,35 @@
+Es una biblioteca que se utiliza principalmente para:
+- La limpieza, organizacion, uso de datos.
+- Analisis exploratorio
+- Visualizacion de datos estadisticos
+-------------------------------------------------------------------
+Tipos de Datos de Pandas => Trabaja con 2 tipos de datos: 
+- Series => Seran las columnas de pandas ya que se trabaja con tablas
+    Es un arreglo unidimensional
+    # ESTE METODO ES PARA VOLVER UNA SERIE(COLMNA) A LOS DATOS DE ALGUNA LISTA
+        datos = [10, 20, 30, 40, 50]
+        serie2 = pd.Series(datos)
+        serie2
+        0    10
+        1    20
+        2    30
+        3    40
+        4    50
+    indices = ['a', 'b', 'c', 'd', 'e']
+    serie2 = pd.Series(datos,indices)
+    serie2
+        a    10
+        b    20
+        c    30
+        d    40
+        e    50
+
+- DataFrames => Seran las tablas (Estructura de datos Bidimensional)
+    Esto es para convertir una lista, diccionario, tupla de datos en tablas
+    y poder manipular los datos con pandas para data science
+        df = pd.DataFrame(datos)
+        df
+    Esta funcion de pandas sirve para leer archivos csv
+        df = pd.read_csv('Precipitaciones.csv')
+-------------------------------------------------------------------
+   

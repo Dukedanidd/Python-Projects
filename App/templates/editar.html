@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Receta</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Editar Receta: {{ receta['nombre'] }}</h1>
+        <form method="POST">
+            <div class="mb-4">
+                <label for="nombre" class="block text-gray-700 font-semibold">Nombre de la Receta:</label>
+                <input type="text" name="nombre" value="{{ receta['nombre'] }}" class="border-gray-400 border p-2 rounded w-full" required>
+            </div>
+
+            <div id="ingredientes" class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-2">Ingredientes:</label>
+                {% for ingrediente, cantidad in receta['ingredientes'].items() %}
+                    <div class="flex space-x-2 mb-2">
+                        <input type="text" name="ingrediente[]" class="border-gray-400 border p-2 rounded w-full" placeholder="Nombre del ingrediente" value="{{ ingrediente }}" required>
+                        <input type="number" name="cantidad[]" class="border-gray-400 border p-2 rounded w-full" placeholder="Cantidad" value="{{ cantidad }}" required>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-4">
+                <label for="instrucciones" class="block text-gray-700 font-semibold">Instrucciones:</label>
+                <textarea name="instrucciones" class="border-gray-400 border p-2 rounded w-full" rows="4" required>{{ receta['instrucciones'] }}</textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="tiempo_preparacion" class="block text-gray-700 font-semibold">Tiempo de Preparación (min):</label>
+                <input type="number" name="tiempo_preparacion" value="{{ receta['tiempo_preparacion'] }}" class="border-gray-400 border p-2 rounded w-full" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="tiempo_coccion" class="block text-gray-700 font-semibold">Tiempo de Cocción (min):</label>
+                <input type="number" name="tiempo_coccion" value="{{ receta['tiempo_coccion'] }}" class="border-gray-400 border p-2 rounded w-full" required>
+            </div>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Actualizar Receta</button>
+        </form>
+    </div>
+</body>
+</html>

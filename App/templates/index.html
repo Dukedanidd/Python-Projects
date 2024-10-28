@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Recetas</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold my-4">Lista de Recetas</h1>
+        <a href="{{ url_for('agregar_receta') }}" class="btn agregar">Agregar Receta</a>
+        {% if recetas and recetas|length > 0 %}
+            <ul class="recetas-list mt-4">
+                {% for receta in recetas %}
+                    <li class="receta-item">
+                        <a href="{{ url_for('ver_receta', nombre=receta['nombre']) }}" class="receta-nombre">{{ receta['nombre'] }}</a>
+                        <div>
+                            <a href="{{ url_for('editar_receta', nombre=receta['nombre']) }}" class="btn editar">Editar</a>
+                            <form action="{{ url_for('eliminar_receta', nombre=receta['nombre']) }}" method="POST" class="inline">
+                                <button type="submit" class="btn eliminar">Eliminar</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay recetas disponibles. ¡Agrega una!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

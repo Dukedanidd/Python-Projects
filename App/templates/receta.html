@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ receta['nombre'] }}{% endblock %}
+
+{% block content %}
+<head>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md mt-5">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ receta['nombre'] }}</h2>
+    
+    <h3 class="text-xl font-semibold text-gray-700 mt-4">Ingredientes:</h3>
+    <ul class="list-disc list-inside text-gray-600 mt-2">
+        {% for ingrediente, cantidad in receta['ingredientes'].items() %}
+            <li>{{ ingrediente }}: {{ cantidad }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3 class="text-xl font-semibold text-gray-700 mt-6">Instrucciones:</h3>
+    <p class="text-gray-600 mt-2">{{ receta['instrucciones'] }}</p>
+    
+    <div class="mt-6">
+        <p class="text-gray-700"><strong>Tiempo de Preparación:</strong> {{ receta['tiempo_preparacion'] }} minutos</p>
+        <p class="text-gray-700 mt-2"><strong>Tiempo de Cocción:</strong> {{ receta['tiempo_coccion'] }} minutos</p>
+    </div>
+</div>
+{% endblock %}
