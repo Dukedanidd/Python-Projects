@@ -1,0 +1,8 @@
+Numpy es una biblioteca de Python que se utiliza para el manejo de datos numéricos.
+Es una abreviatura de Numerical Python.
+
+Importancia de Numpy en Data Science:
+- Proporciona estructuras de datos eficientes para el manejo de datos numéricos.
+- Permite realizar operaciones matemáticas y estadísticas de manera eficiente.
+- Facilita la manipulación y transformación de datos.
+- Proporciona herramientas para el análisis de datos y la creación de modelos predictivos.
